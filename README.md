@@ -601,6 +601,50 @@ public class MiServicio {
 
 ---
 
+# Configuración de Propiedades (application.properties)
+
+## Descripción
+El archivo `application.properties` contiene la configuración de la aplicación como nombre, conexión a base de datos, y comportamiento de JPA/Hibernate.
+
+## Propiedades Principales
+
+```properties
+# Nombre de la aplicación
+spring.application.name=alumnos
+
+# Configuración de Base de Datos
+spring.datasource.url=jdbc:mysql://localhost:3306/app_db
+spring.datasource.username=app_user
+spring.datasource.password=secret
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# Configuración de JPA/Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+## Explicación de Propiedades
+
+### Nombre de la Aplicación
+- `spring.application.name`: Nombre identificador del microservicio
+
+### Conexión a Base de Datos
+- `spring.datasource.url`: URL de conexión (servidor, puerto, base de datos)
+- `spring.datasource.username`: Usuario para autenticarse en la BD
+- `spring.datasource.password`: Contraseña del usuario
+- `spring.datasource.driver-class-name`: Driver JDBC para MySQL
+
+### JPA/Hibernate
+- `spring.jpa.hibernate.ddl-auto`: Estrategia de creación/actualización de tablas
+  - `create`: Crea las tablas (borra si existen)
+  - `create-drop`: Crea y elimina al cerrar
+  - `update`: Actualiza las tablas existentes
+  - `validate`: Solo valida sin cambios
+  - `none`: No realiza cambios
+- `spring.jpa.show-sql`: Muestra las consultas SQL en la consola (útil para debugging)
+
+---
+
 ## Resumen del Flujo de Programación
 
 ```
@@ -631,4 +675,3 @@ Respuesta JSON al cliente
 ---
 
 **Última actualización**: 2026  
-**Versión**: 1.0
